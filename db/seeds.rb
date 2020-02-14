@@ -11,3 +11,19 @@ Ingredient.create(name: "ice")
 Ingredient.create(name: "mint leaves")
 puts "done -------------------!!"
 
+
+
+
+require 'json'
+require 'open-uri'
+
+url = 'https://www.thecocktaildb.com/api/json/v1/1/list.php?i=list'
+cocktail_serialized = open(url).read
+cocktail = JSON.parse(cocktail_serialized)
+
+
+cocktail["drinks"].each do |ingredient|
+  ing = ingredient["strIngredient1"]
+  Ingredient.create!(name: ing)
+
+end

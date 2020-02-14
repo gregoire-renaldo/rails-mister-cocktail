@@ -1,0 +1,12 @@
+
+
+
+
+<p ><%= @cocktail.name %></p>
+
+<%= link_to 'Add a dose to cocktail', new_cocktail_dose_path(@cocktail) %>
+<hr>
+
+<%= link_to cocktails_path do %>
+  <i class="fa fa-history"></i> Back to list
+<% end %>
